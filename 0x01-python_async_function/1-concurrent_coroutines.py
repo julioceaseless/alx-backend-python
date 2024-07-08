@@ -13,6 +13,11 @@ async def wait_n(n: int, max_delay: int):
     """
     executes multiple coroutines at the same time with async
     """
-    delays = await asyncio.gather(*(wait_random(max_delay)
-                                  for _ in range(n)))
-    return sorted(delays)
+    tasks = [wait_random(max_delay) for _ in range(n)]
+    delays = []
+
+    for task in asyncio.as_completed(tasks):
+        delay = await task
+        delays.append(delay)
+
+    return delays
