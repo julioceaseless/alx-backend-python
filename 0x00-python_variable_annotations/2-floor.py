@@ -5,4 +5,7 @@ Basic annotation
 
 
 def floor(n: float) -> int:
+    """
+    rounds down a float
+    """
     return int(n)
