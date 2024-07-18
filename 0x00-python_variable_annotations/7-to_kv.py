@@ -5,7 +5,7 @@ Basic annotation
 from typing import List, Union, Tuple
 
 
-def to_kv(k: str, v: Union[float, int]) -> Tuple[str, float]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """
     make tuple
     """
